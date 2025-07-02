@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Calculadora quadrática</title>
+</head>
+<body>
+    <script>
+        let a = parseFloat(prompt("Insira o valor de a"));
+        let b = parseFloat(prompt("Insira o valor de b"));
+        let c = parseFloat(prompt("Insira o valor de c"));
+        function funcaoQuadrada(a, b, c, x){
+            return a*x*x + b*x + c
+        }
+        function formulaBaskara(a, b, c, delta){
+            let x1= (-b + Math.sqrt(delta))/ (2*a ) 
+            let x2= (-b - Math.sqrt(delta))/ (2*a)
+            alert("As raízes são: "+ x1 + " e " + x2)
+            return [x1,x2];
+        }
+        function discriminante(a, b, c){
+            let delta = b*b -4*a*c;
+
+            if (delta < 0){
+                alert("A função não possui raizes reais.");
+            }
+            else if (delta === 0){
+                let x = -b / (2*a);
+                alert("A única raíz dessa função: " + x)
+
+            }
+            else{
+                return formulaBaskara(a, b, c, delta);
+            }
+
+
+        }
+        discriminante(a,b,c);
+
+    </script>
+</body>
+</html>
