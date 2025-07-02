@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>Fatorial</title>
+</head>
+<body>
+    <script>
+        let repetir = true;
+        while (repetir){
+            let fatorial;
+            while (true){
+                fatorial = parseInt(prompt("Disgite um valor inteiro e positivo"));
+                
+                if (!isNaN(fatorial) && Number.isInteger(fatorial) && fatorial >= 0){
+                    break;
+                } else{
+                    alert("Digite outro valor, esse é menor que zero")
+                }
+            }
+                
+                let resultado = 1;
+                for (let i = fatorial; i > 1; i--){
+                    resultado *= i;
+                }
+                alert(`O fatorial de ${fatorial} é: ${resultado}`);
+                
+                let resposta = prompt("Deseja calcular outro fatorial? (S/N)").toLowerCase();
+                if(resposta !== "s"){
+                    repetir = false;
+                }
+            }
+        
+    </script>
+</body>
+</html>

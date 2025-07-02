@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Fila de Espera</title>
+</head>
+<body>
+    <script>
+        function Fila(){
+            let fila = [];
+            
+            let filaEspera = parseInt(prompt("Bem vindo à fila de espera! Digite o número referente ao que deseja: \n1. Novo Cliente \n2. Atender Cliente. \n3. Sair"));
+            while (filaEspera != 3){
+                if (filaEspera === 1){
+                    let novo_cliente = prompt("Digite o nome do novo cliente:");
+                    fila.push(novo_cliente);
+                    alert(novo_cliente + ` foi adicionado à fila` + `\nPosição na fila: ${fila.length}º` + `\nFila atual: \n${fila.map((nome, i) => `${i + 1}º. ${nome}`).join("\n")}`);
+                }
+                else if (filaEspera === 2){
+                    if (fila.length === 0){
+                        alert("Não existem clientes na fila");
+                    }
+                    else {
+                        let atendido = fila.shift();
+                        alert("Cliente atendido: " + atendido);
+                    }
+
+                }
+                else{
+                    alert("Opção inválida!");
+                }
+                let filaOrdem = fila.length === 0
+                    ? "Fila vazia"
+                    : fila.map((nome, i) => `${i + 1}º ${nome}`).join("\n");
+                filaEspera = parseInt(prompt(`Fila Atual: \n${filaOrdem}\n\nDigite o número referente ao que deseja: \n1. Novo Cliente \n2. Atender Cliente. \n3. Sair`));
+            }
+        }
+        
+        Fila()
+    </script>
+</body>
+</html>

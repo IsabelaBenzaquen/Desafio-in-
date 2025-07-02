@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <title>Jogadores</title>
+</head>
+<body>
+    <script>
+        let time = [];
+        function adicionarJogador(){
+            let nome = prompt("Digite o nome do jogador: ");
+            let idade = parseInt(prompt("Digite a idade do jogador: "));
+            let posicao = prompt("Digite a posição do jogador: ");
+            let pontuacao = parseInt(prompt("Digite a pontuação do jogador: ")); 
+            let jogador = {nome: nome, idade: idade, posicao: posicao, pontuacao: pontuacao};
+            time.push(jogador);
+        }
+        function buscarPorPosicao(){
+            let posicaoDesejada = prompt("Digite a posição desejada: ");
+            let encontrados = time.filter(jogador => jogador.posicao.toLowerCase() === posicaoDesejada.toLowerCase());
+            if (encontrados.length === 0){
+                alert("Não existem jogadores nessa posição");
+            }
+            else{
+                let mensagem = "Jogadores na posição " + posicaoDesejada + ":\n"; encontrados.forEach(jogador => {
+                    mensagem += `nome: ${jogador.nome}, Idade: ${jogador.idade}, Pontuação: ${jogador.pontuacao}\n`;
+                });
+                alert(mensagem); 
+            }
+        }
+        function listarTime(){
+            if (time.length === 0){
+                alert("Não existem jogadores cadastrados");
+                return;
+            }
+            let lista = "Jogadores do time: \n";
+            time.forEach((jogador, index) => {
+                lista += `${index + 1}. Nome: ${jogador.nome}, Idade: ${jogador.idade}, Posição: ${jogador.posicao},
+                Pontuação: ${jogador.pontuacao}\n`;
+            });
+            alert(lista);
+        }
+        function calcularPontuacaoMedia(){
+            if (time.length === 0){
+                alert("Não existem jogadores cadastrados");
+                return;
+            }
+            let soma = 0;
+            for (let i = 0; i < time.length; i++){
+                soma += time[i].pontuacao;
+            }
+            let media = soma / time.length;
+            alert(`A pontuação média dos jogadores é: ${media.toFixed(2)}`);
+        }
+        function menuInterativo(){
+            let opcao;
+            do{
+                opcao = parseInt(prompt("Digite a opção desejada: \n1. Adicionar jogador \n2. Buscar por posição \n3. Listar time \n4. Calcular pontuação média \n5. Sair"));
+                switch (opcao){
+                    case 1: adicionarJogador();
+                    break;
+                    case 2: buscarPorPosicao();
+                    break;
+                    case 3: listarTime();
+                    break;
+                    case 4: calcularPontuacaoMedia();
+                    break;
+                    case 5: break;
+                    default:
+                        alert("Opção inválida.");
+                }
+                
+            }while (opcao !== 5);
+        }
+        menuInterativo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Palindromo</title>
+</head>
+<body>
+    <script>
+        let palindromo = prompt("Digite uma palavra ou frase");
+        function verificaPalindromo(){
+            let frase = palindromo
+            .toLowerCase()
+            .replace(/\s+/g, "");
+            let fraseFormada = frase.split("").reverse().join("");
+            return fraseFormada === frase;
+        }
+        if (verificaPalindromo(palindromo)){
+            alert("É um palindromo");
+        }
+        else{
+            alert("Não é um palindromo")
+        }
+    </script>
+</body>
+</html>

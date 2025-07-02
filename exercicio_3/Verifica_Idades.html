@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Verificador de idades</title>
+</head>
+<body>
+    <script>
+        const nascimentos = [2010, 1991, 1970, 2005, 1986, 2013];
+        verificarIdades(nascimentos);
+        function verificarIdades(nascimento){
+            const anoAtual = parseInt(prompt("Digite o ano atual: "));
+            const resultados = [];
+            for ( let i = 0; i < nascimento.length; i++){
+                let idade = anoAtual - nascimento[i];
+                if (idade >= 18){
+                    resultados.push("maior");
+                    console.log(`Pessoa ${i + 1}: Maior de idade`);
+                }
+                else{
+                    resultados.push("menor");
+                    console.log(`Pessoa ${i + 1}: Menor de idade `);
+
+                }
+            }
+            return resultados;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Elemento Unico</title>
+</head>
+<body>
+    <script>
+        function encontrarElementoUnico(array){
+            let contador = {};
+            for (let i = 0; i < array.length; i++){
+                const numero = array[i];
+                if (contador[numero]){
+                    contador[numero]++;
+                }
+                else{
+                    contador[numero] = 1;
+                }
+            }
+            for (let numero in contador){
+                if (contador[numero] === 1){
+                    alert("Elemento unico: " + numero);
+                    return parseInt(numero);
+                }
+            }
+
+        }
+    const elementos = [2,4,6,8,6,4,2];
+    encontrarElementoUnico(elementos);
+    </script>
+</body>
+</html>

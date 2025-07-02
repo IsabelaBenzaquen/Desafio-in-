@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>Número Inteiro</title>
+</head>
+<body>
+    <script>
+        function Inteiro(){
+            let vetor = parseInt(prompt("Insira a quantidade de números que deseja no vetor:"));
+            let inteiro = [];
+            for (let i = 0; i < vetor; i++){
+                let valores = parseInt(prompt(`Digite o ${i + 1}º número: `));
+                inteiro.push(valores);
+            }
+            return inteiro;
+        }
+        function OrdemCrescente(lista){
+            let contador = 0;
+            for (let i = 1; i < lista.length; i++){
+                if (lista[i] > lista[i - 1]){
+                    contador++;
+                }
+            }
+            return contador;
+        }
+        let numeros = Inteiro();
+        let ordem = OrdemCrescente(numeros);
+        alert(numeros.join(", ") + "\nQuantidade de números crescentes: " + ordem); 
+        
+    </script>
+</body>
+</html>

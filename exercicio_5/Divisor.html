@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Divisores</title>
+</head>
+<body>
+    <script>
+        function calcularDividor(){
+            let valor = parseInt(prompt("insira um número inteiro e positivo."));
+            if (valor % 3 === 0 & valor % 5 === 0){
+                alert("fizzbuzz");
+            }
+            else if (valor % 3 === 0){
+                alert("fizz");
+            }
+            else if (valor % 5 === 0){
+                alert("buzz");
+            }
+            else{
+                return;
+            }  
+        }
+        calcularDividor();
+    </script>
+</body>
+</html>
